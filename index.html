@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>Unicode.js</title> 
+  <link rel="stylesheet" href="css/unicode.css" />
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <script type="text/javascript" src="js/unicode.js"></script>
+  <script type="text/javascript">
+  $(function(){
+    changeLanguage("dyn", "fa");
+    $('#language').change(function(){	
+	 lang = $(this).val();
+	 var control = $('#dyn');
+	 control.attr('lang', lang);
+	 var id = control.attr('id');
+	 changeLanguage(id, lang);
+    });
+   });
+  </script>
+ </head>
+ <body>
+  <div id="container">
+   <img src="img/logo.png" alt="" />
+   <div class="nav">
+	<a href="https://github.com/ankitpokhrel/unicode.js/archive/master.zip" class="linkButton">Download</a> &nbsp;
+	<a href="http://github.com/ankitpokhrel/unicode.js" class="linkButton" target="_blank">Fork on GitHub</a>
+   </div>
+   <div class="outerWrapper">
+    <div class="innerWrapper">
+	 <h2 style="margin-top: 0">What is unicode.js?</h2>
+	 <p>
+	   A small and easy to use javascript library to enable native input support in textfields. It uses <span class="highlight">Google Transliteration API</span>
+	   combined with some javascript to enable unicode support in text input fields and textareas or anything where user can type in. 
+	 </p>
+	 <p>
+	   This library is currently version 0.0 and is released under MIT license. Therefore, you are free to modify and use this library under 
+	   the license terms provided by MIT. By using this library you accept the license agreement.
+	 </p>
+	 <h2>Explanation</h2>
+	 <p>
+	  Every input text field is created using <span class="highlight">&lt;input type="text"/&gt;</span>. By default these text fields only accept 
+	  english characters. So if the website is in language other than english, the users still have to type in english in sections like comment box, 
+	  feedback box or search inputs.
+	 </p>
+	 <p>
+	  unicode.js tries to solve this problem to some extent. The developer can create normal text fields with two new attributes <span class="highlight">class="unicode"</span> 
+	  and <span class="highlight">lang="supported language"</span>. With this minimal change the user can now type using the unicode of the specified language. Here <em>supported 
+	  language</em> is the prefix of the language supported by this library. As it uses <span class="highlight">Google Transliteration API</span>, the supported language is also 
+	  the languages supported by this API.
+	 </p>
+	 <h2>Supported Languages with their Prefix</h2>
+	 <div class="htmlCode">
+	    NEPALI: 'ne',<br/>
+	    ENGLISH: 'en',<br/>
+		RUSSIAN: 'ru',<br/>
+		CHINESE: 'zh',<br/>				
+		GREEK: 'el',<br/>
+		PERSIAN: 'fa',<br/>
+		SERBIAN: 'sr',<br/>
+		URDU: 'ur'<br/>
+		AMHARIC: 'am',<br/>
+		ARABIC: 'ar',<br/>			
+		HINDI: 'hi',<br/>
+		BENGALI: 'bn',<br/>
+		GUJARATI: 'gu',<br/>
+		KANNADA: 'kn',<br/>
+		MALAYALAM: 'ml',<br/>
+		MARATHI: 'mr',<br/>		
+		ORIYA: 'or',<br/>		
+		PUNJABI: 'pa',<br/>		
+		SANSKRIT: 'sa',<br/>
+		SINHALESE: 'si',<br/>		
+		TAMIL: 'ta',<br/>
+		TELUGU: 'te',<br/>
+		TIGRINYA: 'ti',<br/>		
+	 </div>
+    </div>	
+   </div>
+ 
+   <div class="heading"><h1>DEMO</h1></div>
+   <div class="outerWrapper">    
+    <div class="innerWrapper">
+   <form method="post" action="unicode.html">
+    <label for="russian">Russian Input Box</label><br/><input type="text" id="russian" class="unicode" lang="ru" placeholder="Type in Russian..." /><br/>
+    <label>Greek Input Box</label><br/><input type="text" class="unicode" lang="el" placeholder="Type in Greek..." /><br/>
+    <label>Textarea in Nepali</label><br/><textarea class="unicode" lang="sa" rows="10" cols="20" placeholder="Type in Nepali..." ></textarea><br/>	
+	<label for="dyn">Multilingual Input Box</label><br/>
+	<select id="language">	 
+     <option value="am">AMHARIC</option>
+     <option value="ar">ARABIC</option>
+     <option value="bn">BENGALI</option>
+     <option value="zh">CHINESE</option>
+     <option value="el">GREEK</option>
+     <option value="gu">GUJARATI</option>
+	 <option value="hi">HINDI</option>
+     <option value="kn">KANNADA</option>
+     <option value="ml">MALAYALAM</option>
+     <option value="mr">MARATHI</option>
+     <option value="ne">NEPALI</option>
+	 <option value="sa">SANSKRIT</option>
+     <option value="or">ORIYA</option>	 
+     <option value="fa" selected="selected">PERSIAN</option>
+     <option value="pa">PUNJABI</option>
+     <option value="ru">RUSSIAN</option>     
+     <option value="si">SINHALESE</option>
+     <option value="sr">SERBIAN</option>
+     <option value="ta">TAMIL</option>
+     <option value="te">TELUGU</option>
+     <option value="ti">TIGRINYA</option>
+     <option value="ur">URDU</option>
+	</select><br/>
+	<input type="text" id="dyn" lang="sa" placeholder="Type in the selected language..." /><br/>	
+   </form>
+   </div>
+  </div>
+  <div class="outerWrapper">
+    <div class="innerWrapper">
+	 <h2 style="margin-top: 0">How to implement?</h2>
+	 <p>
+	  1. Include required libraries to your page.
+	  <div class="htmlCode">
+	   &lt;script type="text/javascript" src="https://www.google.com/jsapi"&gt;&lt;/script&gt;<br/>
+	   &lt;script type="text/javascript" src="unicode.js"&gt;&lt;/script&gt;
+	  </div><br/>
+	 
+	  2. Now create normal text fields or text areas with two new attributes <em>class="unicode"</em> and <em>lang="your language"</em>.</p>
+	  <div class="htmlCode">
+	   &lt;input type="text" class="unicode" lang="ru" /&gt; //Russian<br/>
+	   &lt;input type="text class="unicode" lang="el" /&gt; //Greek<br/>
+	   &lt;textarea class="unicode" lang="ne"&gt;&lt;/textarea&gt; //Nepali
+	  </div>
+	 	
+	 <h2>Limitations and Enhancement</h2>
+	 <p>
+	  1. Support for 24 languages only.<br/><br/>
+	  2. Google Transliteration API is declared deprecated in 2011 and is live under its deprecation policy.<br/><br/>
+	  3. Google translate is powerful but paid API so will try to find some alternatives in future enhancements.<br/><br/>
+	 </p>
+    </div>
+   </div>
+   
+   <div id="copyright">Copyright &copy; <a href="http://ankitpokhrel.com.np"><strong>Ankit Pokhrel</strong></a>, 2012. All rights reserved.</div>
+   </div>
+ </body>
+</html>
