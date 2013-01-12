@@ -1,0 +1,108 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  background: #fff url(../img/bg.png) repeat;
+  font-family: arial;
+  color: #eee;
+}
+
+h2{
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+p{
+ padding: 10px 0;
+ text-align: justify;
+}
+
+label{
+  color: #FFF;
+  font-weight: bold;
+  margin-left: 10px;
+  text-shadow: 0 1px 0 #000;
+}
+
+#container{
+  width: 800px;
+  margin: 20px auto;
+}
+
+.outerWrapper{
+  margin-top: 30px;
+  padding: 5px;
+  background: rgba(0, 0, 0, 0.5);  
+}
+
+.innerWrapper{  
+  border: 2px solid #666;
+  padding: 10px;
+}
+
+input[type=text], input[type=submit], select, textarea{
+  padding: 10px;
+  width: 450px;
+  border: 1px solid #ccc;
+  margin: 10px 10px;
+  margin-bottom: 30px;
+}
+
+select{
+ width: 150px;
+}
+
+input[type=submit], .linkButton{
+  width: 100px;
+  border-radius: 5px;
+  box-shadow: 1px 0px 2px 0 #222;
+  background: url(../img/button.jpg) repeat-x;
+}
+
+input[type=submit]:hover, .linkButton:hover{
+  background: url(../img/buttonHover.jpg) repeat-x;
+  cursor: pointer;
+}
+
+.linkButton{
+  padding: 10px;
+  font-size: 14px;
+}
+
+a.linkButton{
+  text-decoration: none;
+  color: #222;
+}
+
+.htmlCode{ 
+ background: none repeat scroll 0 0 #999999;
+ border: 1px solid #CCCCCC;
+ color: #222222;
+ font-family: courier new;
+ padding: 5px;
+ text-align: left;
+ font-size: 14px;
+ font-weight: bold;
+ margin: 10px 0;
+}
+
+.highlight{
+ font-style: italic;
+ font-weight: bold;
+ font-size: 12px;
+}
+
+#copyright{
+  margin: 20px 0;
+  text-align: center;
+  color: #222;
+  font-size: 12px;  
+}
+
+.heading{
+  position: relative;
+  top: 30px;
+  color: #000;
+}
